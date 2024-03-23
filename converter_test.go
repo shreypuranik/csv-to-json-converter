@@ -26,4 +26,6 @@ func TestConverterBehavesAsExpected(t *testing.T) {
 	fmt.Println(songs)
 
 	a.Equal(3, len(songs), "3 songs found in converted file")
+
+	_ = os.Remove(jsonFilePath)
 }
