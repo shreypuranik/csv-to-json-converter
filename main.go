@@ -1,5 +1,8 @@
 package main
 
 func main() {
-	Convert()
+	csvFilePath := "./csv_data.csv"
+	jsonFilePath := "./json_data.json"
+
+	Convert(csvFilePath, jsonFilePath)
 }

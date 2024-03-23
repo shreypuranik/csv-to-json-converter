@@ -15,11 +15,10 @@ type Song struct {
 
 // Convert reads in the contents of csv_data.csv
 // and generates a json file with song id, title and artist.
-func Convert() {
+func Convert(csvFilePath string, jsonFilePath string) {
 	fmt.Println("** STARTING CONVERT**")
 
-	jsonFileLocation := "./data.json"
-	csvFile, err := os.Open("./csv_data.csv")
+	csvFile, err := os.Open(csvFilePath)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -56,7 +55,7 @@ func Convert() {
 		os.Exit(1)
 	}
 
-	jsonFile, err := os.Create(jsonFileLocation)
+	jsonFile, err := os.Create(jsonFilePath)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -65,7 +64,7 @@ func Convert() {
 	jsonFile.Write(jsonData)
 	jsonFile.Close()
 
-	fmt.Printf(`JSON file now available at %s`, jsonFileLocation)
+	fmt.Printf(`JSON file now available at %s`, jsonFilePath)
 	fmt.Println()
 	fmt.Println("** COMPLETED CONVERT**")
 }
