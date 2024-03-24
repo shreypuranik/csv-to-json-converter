@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/stretchr/testify/assert"
 	"io"
 	"os"
@@ -22,8 +21,6 @@ func TestConverterBehavesAsExpected(t *testing.T) {
 
 	var songs []Song
 	json.Unmarshal(byteResult, &songs)
-
-	fmt.Println(songs)
 
 	a.Equal(3, len(songs), "3 songs found in converted file")
 
